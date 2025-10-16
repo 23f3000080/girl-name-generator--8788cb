@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Girls Names Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Girls Names Generator</h1>
+        <button id="generateBtn" class="btn btn-primary">Generate Names</button>
+        <ul id="namesList"></ul>
+    </div>
+    <script>
+        const names = ["Emma", "Olivia", "Ava", "Sophia", "Isabella", "Mia", "Amelia", "Harper", "Evelyn", "Abigail"];
+        const generateBtn = document.getElementById('generateBtn');
+        const namesList = document.getElementById('namesList');
+
+        generateBtn.addEventListener('click', () => {
+            namesList.innerHTML = '';
+            const shuffledNames = names.sort(() => 0.5 - Math.random()).slice(0, 10);
+            shuffledNames.forEach(name => {
+                const li = document.createElement('li');
+                li.textContent = name;
+                namesList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
